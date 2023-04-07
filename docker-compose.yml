@@ -8,4 +8,13 @@ services:
       INFLUXDB_PORT: <influxdb_port>
       INFLUXDB_USERNAME: <influxdb_username>
       INFLUXDB_PASSWORD: <influxdb_password>
-    restart: unless-stopped
+      GARMIN_USERNAME: <garmin_username>
+      GARMIN_PASSWORD: <garmin_password>
+      DATA_DIRECTORY: /data
+      CACHE_DIRECTORY: /cache
+      FREQUENCY: 300
+      TZ: <timezone>
+    restart: always
+    volumes:
+      - <path_to_data_directory>:/data
+      - <path_to_cache_directory>:/cache
