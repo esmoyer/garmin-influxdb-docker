@@ -1,20 +1,14 @@
-version: "3"
+version: '3'
 
 services:
   garmin-influxdb:
     build: .
     environment:
-      INFLUXDB_HOST: <influxdb_host>
-      INFLUXDB_PORT: <influxdb_port>
-      INFLUXDB_USERNAME: <influxdb_username>
-      INFLUXDB_PASSWORD: <influxdb_password>
-      GARMIN_USERNAME: <garmin_username>
-      GARMIN_PASSWORD: <garmin_password>
-      DATA_DIRECTORY: /data
-      CACHE_DIRECTORY: /cache
-      FREQUENCY: 300
-      TZ: <timezone>
-    restart: always
-    volumes:
-      - <path_to_data_directory>:/data
-      - <path_to_cache_directory>:/cache
+      - INFLUXDB_HOST=influxdb
+      - INFLUXDB_PORT=8086
+      - INFLUXDB_DATABASE=garmin
+      - INFLUXDB_USERNAME=root
+      - INFLUXDB_PASSWORD=pass
+      - INFLUXDB_TAGS=garmin_device
+      - GARMIN_USERNAME=your_garmin_username
+      - GARMIN_PASSWORD=your_garmin_password
